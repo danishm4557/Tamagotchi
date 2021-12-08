@@ -1,14 +1,20 @@
 body {
-  background-color: rgb(129, 174, 240)
+  z-index: -4
 }
+
+/* #mw2Video {
+  width: 1445px;
+  z-index: -3;
+} */
+
 
 #tamogotchi-frame {
   margin: auto;
   margin-top: 100px;
-  z-index: 3;
+  z-index: 5;
   width: 527px;
   height: 575px;
-  border: 3px solid black;
+  border: 5px solid white;
   background-color: rgb(41, 43, 46);
   border-radius: 50%;
 }
@@ -16,26 +22,29 @@ body {
 #back-frame {
   margin: auto;
   margin-top: -582px;
-  z-index: -1;
+  z-index: 6;
   width: 520px;
   height: 540px;
-  border: 3px solid black;
-  background-image: url("https://lh3.googleusercontent.com/proxy/IjtV2KStQo_7tspdqLdmG_V2u78m7gtBub_WZ0odSHr4q-5TqAvOZddnUM_RlMbsJ2JIz5qtH00A7c-th4yQfpQBm5o1xgKnnANmusZv96HRiPCDPeIPnQ");
+  border: 5px solid white;
+  background-image: url("https://lh3.googleusercontent.com/proxy/GCe6mAVlQjZG811rD3F38JM2MznURDsMCQM5Ro_-3NOtwcgAjBlvshsXUpBLpNUUpjhUwcFc1jwqvFpWjgdhs0122rTpjJl_XWs4xDTJYmEOn5RBCfBGvA");
   border-radius: 50%;
 }
 
 #tamogotchi-screen {
-  width: 250px;
-  height: 250px;
+  width: 210px;
+  height: 210px;
   margin: auto;
-  margin-top: -450px;
+  margin-top: -430px;
   border: 6px solid black;
   border-radius: 10%;
   background-color: white;
   z-index: 3;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 
-#buttons-div {
+#buttons {
   z-index: ;
   margin-left: center;
   padding-top: 10px;
@@ -46,6 +55,7 @@ body {
 
 .button {
   padding: 20px;
+  border: 3px solid red;
   border-radius: 50%
 }
 
@@ -55,4 +65,150 @@ body {
 
 #right-button {
   margin-left: 30px;
+}
+
+
+#hunger {
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(41, 43, 46);
+  padding: 5px;
+  position: absolute;
+  margin-left: 457px;
+  margin-top: -315px;
+  border: 3px solid black;
+  border-radius: 30%;
+  z-index: 4;
+
+
+
+}
+
+#boredom {
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(41, 43, 46);
+  padding: 5px;
+  position: absolute;
+  margin-left: 637px;
+  margin-top: -180px;
+  border: 3px solid black;
+  border-radius: 30%;
+  z-index: 4;
+
+}
+
+#sleepiness {
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(41, 43, 46);
+  padding: 5px;
+  position: absolute;
+  margin-left: 827px;
+  margin-top: -320px;
+  border: 3px solid black;
+  border-radius: 30%;
+  z-index: 4;
+}
+
+/* #soldierID {
+  position: absolute;
+  margin-left: 400px;
+  margin-top: -300px;
+} */
+
+.soldier {
+  position: absolute;
+  margin-left: 680px;
+  margin-top: -300px;
+  opacity: 100;
+}
+
+.soldierRotate {
+  animation-name: rotate;
+  animation-duration: 0.3s;
+  animation-direction: reverse;
+}
+
+input {
+  position: absolute;
+  margin-top: 140px;
+  margin-left: 618px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+  z-index: 6;
+  font-size: 16px;
+  animation-name: slideIn;
+}
+
+#submitButton {
+  position: absolute;
+  margin-top: 195px;
+  margin-left: 690px;
+  padding: 6px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 16px;
+  z-index: 6;
+}
+
+#ageP {
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(41, 43, 46);
+  padding: 5px;
+  border: 3px solid black;
+  border-radius: 30%;
+  position: absolute;
+  margin-top: -360px;
+  margin-left: 500px;
+  z-index: 16;
+}
+
+#gameOver {
+  color: black;
+  width: 130px;
+  font-size: 25px;
+  position: absolute;
+  margin-top: -365px;
+  margin-left: 650px;
+  text-align: center;
+  opacity: 0
+
+}
+
+@keyframes slideIn {
+  0% {
+    transform: skewY(53deg) translateY: -500px;
+  }
+  50% {
+
+  }
+  100% {
+    transform: skew(0deg)
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
 }

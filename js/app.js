@@ -1,12 +1,3 @@
-// const startGame = () => {
-//   const startButtons = document.querySelector('.button')
-//   startButtons.addEventListner('click', '')
-// }
-// const audioUnmute = document.querySelector('#mw2Video')
-// audioUnmute.muted = false
-
-
-
 class Tamagotchi {
   constructor(name) {
     this.name = name
@@ -59,11 +50,12 @@ class Tamagotchi {
     backgroundColor.style.backgroundColor = bgColor
   }
 }
-//   submitNameFunction() {
-//     setInterval(this.timer++, 1000)
-//     setInterval(console.log(this.timer), 1000);
-//   }
-// }
+
+
+
+
+
+
 
 //////////////////////// INSTANTIATING CHARACTER ////////////////////
 const character = new Tamagotchi('babu_G_1');
@@ -71,16 +63,35 @@ console.log(character);
 
 
 
-////////////////////// SETTING UP AGE ////////////////////////
 
+
+
+
+
+
+
+////////////////////// SETTING UP AGE ////////////////////////
+  const soldierMan = document.querySelector('.soldier')
   const ageCount = document.querySelector('#ageP')
   const ageInterval = setInterval(() => {
-    if (character.age >= 24) {
-      clearInterval(timerInterval)
+    if (character.age >= 4 && character.age < 8) {
+      soldierMan.style.width = 5+"em"
+      soldierMan.style.height = 5+"em"
+      soldierMan.style.marginLeft = 675+"px"
+      soldierMan.style.marginTop = -305+"px"
+    } else if (character.age >= 8) {
+      soldierMan.style.width = 6+"em"
+      soldierMan.style.height = 6+"em"
+      soldierMan.style.marginLeft = 670+"px"
+      soldierMan.style.marginTop = -320+"px"
     }
     character.age += 1
     ageCount.innerText = `Age: ${character. age}`
-  }, 5000)
+  }, 4000)
+
+
+
+
 
 
 
@@ -90,7 +101,7 @@ console.log(character);
   const nameSubmit = document.querySelector('#submitButton')
   const gameOver = document.querySelector('#gameOver')
   const soldierCharacter = document.querySelector('.soldier')
-  const allButtons = document.querySelectorAll('button')
+  let inputName = document.querySelector('input')
   nameSubmit.addEventListener('click', ()=> {
     nameSubmit.setAttribute('class', 'soldierRotate')
     let gameTitle = document.querySelector('title')
@@ -99,9 +110,10 @@ console.log(character);
     inputName.remove()
     nameSubmit.disable = true
     nameSubmit.style.opacity = 0
-
     console.log(character.age);
   })
+
+
 
 
 
@@ -121,9 +133,15 @@ console.log(character);
       clearInterval(intervalZ)
       clearInterval(ageInterval)
       gameOver.style.opacity = 100
+      if (gameScreen.style.backgroundColor === 'black') {
+          gameScreen.style.backgroundColor = 'white'
+          gameScreen.style.borderColor = 'black'
+      }
       soldierCharacter.style.opacity = 0
+      nameSubmit.remove()
+      inputName.style.opacity = 0
     }
-  }, 3000)
+  }, 4000)
 
 
   //////////////// DECREASE HUNGER LEVEL WITH BUTTON (FEED) /////////////////
@@ -150,6 +168,7 @@ console.log(character);
 
 
 
+
     //////////////// INCREASE BOREDOM LEVEL WITH TIME /////////////////
     const intervalY = setInterval(() => {
       if (character.boredom <= 18) {
@@ -162,12 +181,18 @@ console.log(character);
         clearInterval(intervalZ)
         clearInterval(ageInterval)
         gameOver.style.opacity = 100
+        if (gameScreen.style.backgroundColor === 'black') {
+            gameScreen.style.backgroundColor = 'white'
+            gameScreen.style.borderColor = 'black'
+        }
         soldierCharacter.style.opacity = 0
+        nameSubmit.remove()
+        inputName.style.opacity = 0
       }
-    }, 3000)
+    }, 4000)
 
 
-    //////////////// DECREASE BOREDOM LEVEL WITH BUTTON (FEED) /////////////////
+    //////////////// DECREASE BOREDOM LEVEL WITH BUTTON (BOREDOM) /////////////////
       const boredomButton = document.querySelector('#middle-button')
       const boredomCount = document.querySelector('#boredom')
       const boredomEnableButton = () => {
@@ -188,6 +213,10 @@ console.log(character);
 
 
 
+
+
+
+
       //////////////// INCREASE SLEEPINESS LEVEL WITH TIME /////////////////
       const intervalZ = setInterval(() => {
         if (character.sleepiness <= 18) {
@@ -199,20 +228,35 @@ console.log(character);
           clearInterval(intervalX)
           clearInterval(intervalY)
           clearInterval(ageInterval)
+          if (gameScreen.style.backgroundColor === 'black') {
+              gameScreen.style.backgroundColor = 'white'
+              gameScreen.style.borderColor = 'black'
+          }
           gameOver.style.opacity = 100
           soldierCharacter.style.opacity = 0
+          nameSubmit.remove()
+          inputName.style.opacity = 0
         }
-      }, 3000)
+      }, 4000)
 
 
-      //////////////// DECREASE SLEEPINESS LEVEL WITH BUTTON (FEED) /////////////////
+      //////////////// DECREASE SLEEPINESS LEVEL WITH BUTTON (SLEEP) /////////////////
+      const gameScreen = document.querySelector('#tamogotchi-screen')
+
         const sleepinessButton = document.querySelector('#right-button')
         const tiredCount = document.querySelector('#sleepiness')
         const sleepinessEnableButton = () => {
           sleepinessButton.disabled = false
         }
-
-        sleepinessButton.addEventListener('click', ()=> {
+        sleepinessButton.addEventListener('click', () => {
+          if (gameScreen.style.backgroundColor === 'black') {
+            gameScreen.style.backgroundColor = 'white'
+            gameScreen.style.borderColor = 'black'
+          } else {
+            gameScreen.style.backgroundColor = 'black'
+            gameScreen.style.borderColor = 'white'
+          }
+          console.log("sleepinessEnableButton");
           sleepinessButton.disabled = true;
           tiredCount.style.padding = 5 + 'px';
           character.sleepFunction()

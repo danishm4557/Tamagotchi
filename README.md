@@ -17,4 +17,4 @@ And as this pet grows older, it will continue to grow in its size. <br>
 <br>
 Click the link to play now!
 
-https://danishm4557.github.io/Tamagotchi-Project/
+https://danishm4557.github.io/Tamagotchi/
